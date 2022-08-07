@@ -1,0 +1,22 @@
+Развернуть постгрес в докере
+
+docker run -d \
+  --name it-camp-postgres \
+  -p 5432:5432 \
+  -v ./postgresql/data:/var/lib/postgresql/data \
+  -e POSTGRES_PASSWORD=123qwe \
+  -e POSTGRES_USER=student \
+  -e POSTGRES_DB=users  \
+  postgres:13
+
+
+Запуск приложения без импорта uvicorn
+
+uvicorn app:app --reload --port XXXX
+
+
+Создание скрипта миграции
+alembic revision --autogenerate -m ''
+Мигрирование
+alembic upgrade head
+
