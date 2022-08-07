@@ -33,9 +33,12 @@ def sign_up(data: SignUpRequest):
         existing = session.query(User).where(User.email == data.email).all()
         if existing:
             raise HTTPException(status_code=409, detail='Email has already been registered')
+
         new = User(**data.dict())
         session.add(new)
         session.commit()
+
+    return data.dict(exclude={'password'})
 
 
 if __name__ == '__main__':
