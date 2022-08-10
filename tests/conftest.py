@@ -1,5 +1,6 @@
 import pytest
 from db import session_factory, User, UserGroup
+from unittest.mock import patch
 
 
 @pytest.fixture(scope='session')
