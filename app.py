@@ -7,7 +7,7 @@ app = FastAPI()
 
 
 @app.get('/')
-def homepage():
+async def homepage():
     """Домашняя страница"""
     return {"Hello": "ITCamp"}
 
